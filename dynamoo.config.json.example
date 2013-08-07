@@ -1,0 +1,7 @@
+{
+	"accessKeyId": "XXXXXXXXXXXXXXXXXXXX", 
+	"secretAccessKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", 
+	"region": "us-west-2",
+	"domains": "roadwaffle.com,roadwaffle.net",
+	"extrahosts": "quux"
+}
