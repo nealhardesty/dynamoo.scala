@@ -79,7 +79,7 @@ object Dynamoo {
 			new ListResourceRecordSetsRequest(zoneId)
 				.withMaxItems("1")
 				.withStartRecordName(host))
-			.getResourceRecordSets.toList
+			.getResourceRecordSets.toList.filter(rrset => rrset.getName == host)
 	}
 
 	private val ipRegex = "[^\\d\\.]".r
