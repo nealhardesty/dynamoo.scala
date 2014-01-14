@@ -25,26 +25,26 @@ object Dynamoo {
 		println("dynamoo " + hostname + " " + ip) 
 		for(zone <- getHostedZones) {
 			for(host <- hosts) {
-			val fullname = host + "." + zone.getName
-			if(domains.contains(zone.getName)) {
-				val rrset = getResourceRecordSets(zone.getId, fullname);
-				if(rrset.isEmpty) {
-					println("creating " + fullname)
-					val changeRequest = makeCreateRecord(zone.getId, fullname, ip);
-					val response = client.changeResourceRecordSets(changeRequest);
-					println("create response: " + response);
-				} else {
-					if(needsUpdate(rrset(0), ip)) {
-						println("updating " + fullname)
-						val changeRequest = makeUpdateRecord(rrset(0), zone.getId, fullname, ip);
+				val fullname = host + "." + zone.getName
+				if(domains.contains(zone.getName)) {
+					val rrset = getResourceRecordSets(zone.getId, fullname);
+					if(rrset.isEmpty) {
+						println("creating " + fullname)
+						val changeRequest = makeCreateRecord(zone.getId, fullname, ip);
 						val response = client.changeResourceRecordSets(changeRequest);
-						println("create response: " + response)
+						println("create response: " + response);
 					} else {
-						println(fullname + " does not need update");
+						if(needsUpdate(rrset(0), ip)) {
+							println("updating " + fullname)
+							val changeRequest = makeUpdateRecord(rrset(0), zone.getId, fullname, ip);
+							val response = client.changeResourceRecordSets(changeRequest);
+							println("create response: " + response)
+						} else {
+							println(fullname + " does not need update");
+						}
 					}
 				}
 			}
-		}
 		}
 	}
 
