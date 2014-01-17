@@ -8,7 +8,7 @@ import com.amazonaws.services.route53._
 import com.amazonaws.services.route53.model._
 
 object Dynamoo {
-	val config = ConfigFactory.parseFile(new File(System.getenv("HOME") + "/.dynamoo.config.json"))
+	val config = ConfigFactory.parseFile(new File(System.getenv("HOME") + "/.r53.config.json"))
 	val accessKeyId = config.getString("accessKeyId");
 	val secretAccessKey = config.getString("secretAccessKey");
 	val region = config.getString("region");
