@@ -1,0 +1,11 @@
+#!/bin/bash -x
+
+#docker build -t dynamoo $(dirname $0)
+
+docker run -v ${HOME}/.dynamoo.config.json:/root/.dynamoo.config.json dynamoo
+
+#docker run -d -v ${HOME}:/mnt --name=dynamoot dynamootemp 
+#docker exec dynamoot cp -v /mnt/.dynamoo.config.json /root/
+#docker commit dynamoot dynamoo
+#docker stop dynamoot
+#docker rm dynamoot
