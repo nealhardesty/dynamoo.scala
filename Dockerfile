@@ -5,7 +5,7 @@ WORKDIR /root
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y wget openjdk-7-jdk
+RUN apt-get install -y wget openjdk-8-jdk
 
 ADD . /root
 
